@@ -7,7 +7,12 @@ const SocketHandler = (req, res) => {
     }
     else {
         const io = new Server(res.socket.server, {
-            cors: true
+            cors: {
+                origin: 'wss://shark-app-6nv3k.ondigitalocean.app/',
+                methods: ["GET", "POST"],
+                credentials: true
+            },
+            transports: ['websocket', 'polling']
         });
         res.socket.server.io = io;
 
