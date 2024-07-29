@@ -12,17 +12,35 @@ export const SocketProvider = (props)=>{
     const {children} = props;
     const [socket, setSocket] = useState(null);
 
-    useEffect(()=>{
-        const connection = io();
+    useEffect(() => {
+        const connection = io('https://shark-app-6nv3k.ondigitalocean.app/', {
+            transports: ['websocket', 'polling'],
+            withCredentials: true
+        });
         setSocket(connection);
-    }, [])
 
-    // In Next.js, both the server-side code (API routes) and the client-side code (React components) are part of the same project and can be tightly coupled. This can sometimes lead to issues where the client-side code expects the server-side socket to be ready and available immediately.
+        connection.on('connect_error', async (err) => {
+            console.error("Error establishing socket connection:", err);
+            await fetch('/api/socket');
+        });
 
-    socket?.on('connect_error', async (err) => {
-        console.log("Error establishing socket", err)
-        await fetch('/api/socket')
-    })
+        // Cleanup function to close the connection
+        return () => {
+            connection.close();
+        };
+    }, []);
+
+    // useEffect(()=>{
+    //     const connection = io();
+    //     setSocket(connection);
+    // }, [])
+
+    // // In Next.js, both the server-side code (API routes) and the client-side code (React components) are part of the same project and can be tightly coupled. This can sometimes lead to issues where the client-side code expects the server-side socket to be ready and available immediately.
+
+    // socket?.on('connect_error', async (err) => {
+    //     console.log("Error establishing socket", err)
+    //     await fetch('/api/socket')
+    // })
 
     return (<SocketContext.Provider value = {socket}>
         {children}
