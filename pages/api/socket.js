@@ -8,7 +8,7 @@ const SocketHandler = (req, res) => {
     else {
         const io = new Server(res.socket.server, {
             cors: {
-                origin: 'http://localhost:8080'
+                origin: "https://shark-app-6nv3k.ondigitalocean.app"
             }
         });
         res.socket.server.io = io;
