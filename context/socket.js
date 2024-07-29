@@ -13,7 +13,10 @@ export const SocketProvider = (props)=>{
     const [socket, setSocket] = useState(null);
 
     useEffect(()=>{
-        const connection = io();
+        const connection = io({
+            transports: ['websocket', 'polling'],
+            withCredentials: true
+        });
         setSocket(connection);
     }, [])
 
