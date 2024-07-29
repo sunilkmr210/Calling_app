@@ -13,10 +13,7 @@ export const SocketProvider = (props)=>{
     const [socket, setSocket] = useState(null);
 
     useEffect(()=>{
-        const connection = io('https://shark-app-6nv3k.ondigitalocean.app/', {
-            transports: ['websocket', 'polling'],
-            withCredentials: true
-        });
+        const connection = io();
         setSocket(connection);
     }, [])
 
