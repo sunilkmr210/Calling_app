@@ -8,7 +8,7 @@ const SocketHandler = (req, res) => {
     else {
         const io = new Server(res.socket.server, {
             cors: {
-                origin: 'https://shark-app-6nv3k.ondigitalocean.app/',
+                origin: '*',
                 methods: ["GET", "POST"],
                 credentials: true
             },
