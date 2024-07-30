@@ -14,11 +14,13 @@ export const SocketProvider = (props)=>{
 
     useEffect(()=>{
         const connection = io('wss://shark-app-6nv3k.ondigitalocean.app/ws',
-            { path: '/socket.io'}
+            { path: '/socket.io',
+              transports: ['websocket']
+            }
             
         );
         
-        setSocket(connection);a
+        setSocket(connection);
     }, [])
     
 
