@@ -17,10 +17,6 @@ export const SocketProvider = (props)=>{
             { path: '/socket.io' }
         );
         
-        connection.on('error', (err) => {
-            console.log("Socket error", err);
-        });
-
         setSocket(connection);
     }, [])
     
@@ -28,7 +24,7 @@ export const SocketProvider = (props)=>{
     // In Next.js, both the server-side code (API routes) and the client-side code (React components) are part of the same project and can be tightly coupled. This can sometimes lead to issues where the client-side code expects the server-side socket to be ready and available immediately.
 
     socket?.on('connect_error', async (err) => {
-        // console.log("Error establishing socket", err)
+        console.log("Error establishing socket", err)
         await fetch('/api/socket')
     })
 
