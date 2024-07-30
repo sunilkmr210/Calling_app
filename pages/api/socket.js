@@ -10,6 +10,7 @@ const SocketHandler = (req, res) => {
             cors: {
                 origin: '*',
                 methods: ["GET", "POST"],
+                allowedHeaders: '*',
                 credentials: true
             },
             transports: ['websocket', 'polling']
