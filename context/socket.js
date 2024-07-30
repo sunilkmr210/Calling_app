@@ -18,7 +18,7 @@ export const SocketProvider = (props)=>{
             
         );
         
-        setSocket(connection);
+        setSocket(connection);a
     }, [])
     
 
