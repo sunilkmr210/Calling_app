@@ -13,6 +13,7 @@ const SocketHandler = (req, res) => {
                 allowedHeaders: '*',
                 credentials: true
             },
+            path: '/socket.io',
             transports: ['websocket', 'polling']
         });
         res.socket.server.io = io;
