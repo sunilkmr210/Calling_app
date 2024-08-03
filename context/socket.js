@@ -28,6 +28,10 @@ export const SocketProvider = (props)=>{
         await fetch('/api/socket')
     })
 
+    return () => {
+        connection.disconnect();
+      };
+
     
 
     return (<SocketContext.Provider value = {socket}>
