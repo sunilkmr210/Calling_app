@@ -13,9 +13,7 @@ export const SocketProvider = (props)=>{
     const [socket, setSocket] = useState(null);
 
     useEffect(()=>{
-        const connection = io('https://shark-app-6nv3k.ondigitalocean.app/',
-            {path: '/socket.io'}
-        );
+        const connection = io('https://shark-app-6nv3k.ondigitalocean.app/');
         
         setSocket(connection);
     }, [])
