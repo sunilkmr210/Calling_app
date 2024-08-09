@@ -4,11 +4,13 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Screenshots
+**Entry screen**
 
+![Screenshot (26)](https://github.com/user-attachments/assets/8434ae6f-2cf3-487c-b8d9-6f775519d59e)
 
-![Screenshot (26)](https://github.com/user-attachments/assets/f5ef61fe-11e0-46ff-bcf0-85177bd6118e)
+**Meeting screen**
 
-![Screenshot (28)](https://github.com/user-attachments/assets/f519b29d-dfb6-49cc-b9cd-83c85b9a4ab5)
+![Screenshot (28)](https://github.com/user-attachments/assets/cfb2d000-b33c-460f-882f-237f8d3a5091)
+
 
 
